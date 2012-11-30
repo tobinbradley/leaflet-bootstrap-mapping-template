@@ -1,18 +1,9 @@
-
-
 /* ==========================================================================
-   Author's custom styles
+   Custom styles
    ========================================================================== */
 
-/* =============================================================================
-   Chrome Frame Prompt
-   ========================================================================== */
+/* Chrome Frame Prompt */
 .chromeframe { display: block; position: absolute; top: 40px; z-index: 100; width: 100%; margin: 0; text-align: center; font-size: 0.9em; background: #FFFF07; color: black; padding: 1px; }
-
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
 
 /* Helper Classes */
 .textcenter { text-align: center; }
@@ -44,7 +35,6 @@
 .navbar .brand { display: none; }
 .navbar-fixed-top { box-shadow: 0 3px 6px black; }
 
-
 /* map elements */
 #map {
     height: 500px;
@@ -72,7 +62,6 @@
     .navbar .brand { display: block; padding-left: 20px; }
     .jumbotron { display: none; }
 }
-
 
 /* Print Handling */
 @media print {
