@@ -35,6 +35,10 @@
 .navbar .brand { display: none; }
 .navbar-fixed-top { box-shadow: 0 3px 6px black; }
 
+/* page elements */
+.popover-trigger { text-decoration: none; border-bottom: 1px dashed; font-weight: bold; }
+.popover-trigger:hover { text-decoration: none; }
+
 /* map elements */
 #map {
     height: 500px;

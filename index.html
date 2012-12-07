@@ -52,7 +52,7 @@
                         </ul>
                         <form class="navbar-form pull-right">
                             <label for="searchbox" class="hide">Search</label>
-                            <input id="searchbox" class="span4" type="text" placeholder="Search">
+                            <input id="searchbox" class="span4" type="text" placeholder="Search" rel="popover" data-content="Search for an address (try <em>700 N</em>) or location (try <em>freedom</em>)." data-original-title="Search" data-placement="bottom" data-html="true" data-trigger="manual">
                         </form>
                     </div>
                     <!--/.nav-collapse -->
@@ -78,6 +78,9 @@
                             <div class="overview">
                                 <h2>Welcome</h2>
                                 <p>
+                                    Here's a hover popover for the <a href="javascript:void" class="popover-trigger" data-popover-selector="#searchbox">search</a> box.
+                                </p>
+                                <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam faucibus eleifend aliquet. Fusce euismod lorem lacus, vitae tristique justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum cursus elementum risus lobortis vestibulum. Maecenas in ligula massa, in dignissim augue. Sed neque massa, egestas quis auctor in, feugiat vestibulum tellus. Sed nec sapien sollicitudin ipsum venenatis aliquam. Nunc condimentum, est quis molestie suscipit, libero mauris egestas turpis, vitae pretium lorem nibh ac sem.
                                 </p>
                                 <p>
@@ -85,7 +88,6 @@
                                 </p>
                                 <p>
                                     <a data-toggle="modal" href="#modalDisclaimer" class="btn btn-primary btn-large">Modal</a>
-                                    <a href="#" class="btn btn-large btn-danger" rel="popover" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title">Popover</a>
                                     <a href="#" class="btn" rel="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="Popover on top">Popover</a>
                                     <a href="javascript:void(0)" rel="tooltip" data-placement="bottom" data-original-title="Tooltip on bottom.">Tooltip</a>
                                 </p>

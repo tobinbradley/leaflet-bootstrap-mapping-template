@@ -12,6 +12,12 @@ $(document).ready( function() {
 
     // Activate popovers
     $('a[rel=popover]').popover();
+    $(".popover-trigger").hoverIntent( function(){
+            if ( $(window).width() > 979 ) $( $(this).data("popover-selector") ).popover("show");
+        }, function(){
+            $( $(this).data("popover-selector") ).popover("hide");
+        }
+    );
 
     // Highlight search box text on click
     $("#searchbox").click(function() { $(this).select(); });
