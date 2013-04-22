@@ -10,7 +10,7 @@
             try {
                 this.apply(d, args || []);
             } catch (err) {
-                console.log(err);
+                console.log(err, d, args);
             }
         });
     };
@@ -36,11 +36,6 @@
         return l;
     };
 })(jQuery);
-
-// determine if is number
-function isNumber(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
-}
 
 // get url parameters
 function getURLParameter(name) {

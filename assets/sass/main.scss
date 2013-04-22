@@ -2,9 +2,10 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
 
-/* ==========================================================================
-   Custom styles
-   ========================================================================== */
+// header colors
+$header-start-color: #020031;
+$header-end-color: #6D3353;
+
 
 /* Chrome Frame Prompt */
 .chromeframe { display: block; position: absolute; top: 40px; z-index: 100; width: 100%; margin: 0; text-align: center; font-size: 0.9em; background: #FFFF07; color: black; padding: 1px; }
@@ -22,13 +23,15 @@
     color: white;
     text-align: left;
     text-shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 0 30px rgba(0, 0, 0, .075);
-    background: #020031;
-    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#020031), color-stop(100%,#6D3353));
-    background: linear-gradient(45deg, #020031 0%, #6D3353 100%) repeat scroll 0 0 transparent;
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#020031', endColorstr='#6d3353',GradientType=1 );
+    background: $header-start-color;
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,$header-start-color), color-stop(100%,$header-end-color));
+    background: linear-gradient(45deg, $header-start-color 0%, $header-end-color 100%) repeat scroll 0 0 transparent;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$header-start-color', endColorstr='$header-end-color',GradientType=1 );
     box-shadow: inset 0 3px 7px rgba(0, 0, 0, .2), inset 0 -3px 7px rgba(0, 0, 0, .2);
+    h1 {
+        font-size: 40px;
+    }
 }
-.jumbotron h1 { font-size: 40px; }
 .jumbotron::after {
     content: '';
     display: block;
@@ -45,11 +48,7 @@
 .navbar-fixed-top { box-shadow: 0 3px 6px black; }
 #searchbox { color: #555 !important;}
 
-/* page elements */
-.popover-trigger { text-decoration: none; border-bottom: 1px dashed; font-weight: bold; }
-.popover-trigger:hover { text-decoration: none; }
-
-/* map elements */
+// map
 #map {
     height: 500px;
     box-shadow: 0 8px 16px -8px #222;
@@ -60,13 +59,12 @@
     border-radius: 6px;
 }
 
-
-/* jquery ui tweaks */
+// jquery ui tweaks
 .ui-autocomplete .ui-menu-item { padding-left: 10px }
 .ui-autocomplete { overflow: auto; overflow-y: auto; overflow-x: hidden; font-size: 0.9em; font-weight: normal; max-height: 400px; box-shadow: 2px 2px 4px #666;}
 .ui-autocomplete-category { font-weight: bold; padding: 0 4px; line-height: 1.5; font-variant: small-caps; font-size: 14px; }
 
-/* tweaks to responsive design behavior */
+// repsonsive design
 @media (max-width: 979px) {
     .navbar-fixed-top { margin-bottom: 0; }
     .jumbotron { padding: 20px 0 5px; }
@@ -78,19 +76,8 @@
     .jumbotron { display: none; }
 }
 
-/* Print Handling */
+//  printing
 @media print {
     .btn-navbar { display: none !important; }
     #map { box-shadow: none;  }
 }
-
-
-
-
-
-
-
-
-
-
-

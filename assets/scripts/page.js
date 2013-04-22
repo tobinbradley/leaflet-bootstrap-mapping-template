@@ -1,10 +1,10 @@
-var     wsbase = "http://maps.co.mecklenburg.nc.us/rest/",
-        map,
-        marker;
-
 /********************************************
     Page Stuff
 *********************************************/
+
+var map,
+    marker;
+
 $(document).ready( function() {
 
     // Activate any tooltips
@@ -12,17 +12,11 @@ $(document).ready( function() {
 
     // Activate popovers
     $('*[rel=popover]').popover();
-    $(".popover-trigger").hover(function () {
-            if ($(window).width() > 979) { $($(this).data("popover-selector")).popover("show"); }
-        }, function () {
-            $($(this).data("popover-selector")).popover("hide");
-        }
-    );
 
     // Pubsub
-    $.subscribe("/map/addmarker", zoomToLngLat); // Zoom to location
-    $.subscribe("/map/addmarker", addMarker); // Add marker
-    if (Modernizr.history) { $.subscribe("/map/addmarker", newHistory); } // Add marker
+    $.subscribe("/map/addmarker", zoomToLngLat);
+    $.subscribe("/map/addmarker", addMarker);
+    if (Modernizr.history) { $.subscribe("/map/addmarker", newHistory); }
 
     // jQuery UI Autocomplete
     $("#searchbox").click(function () { $(this).select(); });
@@ -45,7 +39,7 @@ $(document).ready( function() {
         autoFocus: true,
         source: function (request, response) {
             $.ajax({
-                url: wsbase + 'v4/ws_geo_ubersearch.php',
+                url: 'http://maps.co.mecklenburg.nc.us/rest/v4/ws_geo_ubersearch.php',
                 dataType: 'jsonp',
                 data: {
                     searchtypes: 'address,library,school,park,geoname,cast,nsa,intersection,pid,business,road',
@@ -64,13 +58,7 @@ $(document).ready( function() {
                         }));
                     } else {
                         response($.map([{}], function (item) {
-                            if (isNumber(request.term)) {
-                                // Needs more data
-                                return { label: 'More information needed for search.', responsetype: "I've got nothing" };
-                            } else {
-                                // No records found
-                                return { label: "No records found.", responsetype: "I've got nothing" };
-                            }
+                            return { label: 'No matches found.', responsetype: "I've got nothing" };
                         }));
                     }
                 }
@@ -78,10 +66,7 @@ $(document).ready( function() {
         },
         select: function (event, ui) {
             if (ui.item.lat) {
-                locationFinder(ui.item);
-            }
-            else if (ui.item.gid) {
-                changeNeighborhood(ui.item.gid);
+                $.publish("/map/addmarker", [ ui.item ]);
             }
             $(this).popover('hide').blur();
         },
@@ -111,13 +96,14 @@ $(window).load(function () {
                 $.publish("/map/addmarker", [ loc ]);
                 $.subscribe("/map/addmarker", newHistory);
             }
-            else {
+            else if (map.getCenter().lat.toString().substr(0,6) != 35.260) {
                 map.setView([35.260, -80.807], 10);
             }
         });
     }
 });
 
-
-
-
+// Push state
+function newHistory(data) {
+    history.pushState(null, null, "?loc=" + data.lat + "," + data.lng);
+}
