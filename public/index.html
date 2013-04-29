@@ -20,8 +20,16 @@
         <!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.ie.css" /><![endif]-->
         <link rel="stylesheet" href="css/main.css?foo=7958">
 
-        <!-- Modernizr -->
-        <script src="js/modernizr.min.js"></script>
+        <!-- HTML5 for oldIE -->
+        <!--[if lt IE 9]>
+            <script>
+                document.createElement('header'); document.createElement('nav'); document.createElement('section'); document.createElement('article');
+                document.createElement('aside'); document.createElement('footer'); document.createElement('hgroup');
+            </script>
+            <style>
+                header,nav,section,article,aside,footer,hgroup { display: block; }
+            </style>
+        <![endif]-->
     </head>
 
     <body>
@@ -81,7 +89,8 @@
                                     <a href="javascript:void(0)" rel="tooltip" data-placement="bottom" data-original-title="Tooltip on bottom.">Tooltip</a>
                                 </p>
                                 <p>
-                                    See <a href="http://twitter.github.com/bootstrap/">Twitter's Bootstrap site</a> for full CSS/JS documentation.</a>
+                                    See <a href="http://twitter.github.com/bootstrap/">Twitter's Bootstrap site</a> for full CSS/JS documentation.
+                                </p>
                             </div>
                         </div>
                         <div id="map-area" class="span6 pull-right">
