@@ -11,4 +11,4 @@ yui-compressor --type js -o public/js/main.js public/js/main.js
 sed -i "s/?foo=[0-9]*/?foo=$rand/g" public/index.html
 
 # Optimize Images
-trimage -q -d public/images
+# trimage -q -d public/images

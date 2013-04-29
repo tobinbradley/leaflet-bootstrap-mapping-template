@@ -5,7 +5,7 @@
 var map,
     marker;
 
-$(document).ready( function() {
+$(document).ready(function () {
 
     // Activate any tooltips
     $('a[rel=tooltip]').tooltip();
